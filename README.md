@@ -1,5 +1,7 @@
 # CapyTask 🍊
 
+🌐 **Disponible en español e inglés · Available in Spanish and English** — [English below](#english)
+
 Monitor de recursos para macOS con la claridad del Administrador de Tareas de Windows y un capibara animado que reacciona a la carga de tu Mac: tranquilo, preocupado o estresado.
 
 - **Métricas reales** del kernel (Mach/libproc): CPU por núcleo, memoria física (activa, inactiva, wired, comprimida y libre), disco y procesos.
@@ -15,10 +17,20 @@ Monitor de recursos para macOS con la claridad del Administrador de Tareas de Wi
 | Preocupado | 40 – 75 % | `assets_processed/frames/worried` |
 | Estresado | > 75 % | `assets_processed/frames/stressed` |
 
+## Descargar
+
+Descarga `CapyTask-1.0.0.zip` desde [Releases](https://github.com/K1suru/CapyTask/releases/latest), descomprímelo y arrastra **CapyTask.app** a *Aplicaciones*. Es universal (Apple Silicon e Intel) y requiere macOS 14 o posterior.
+
+La app no está firmada con un certificado de Apple Developer, así que la primera vez macOS la bloqueará. Para abrirla:
+
+- Clic derecho sobre **CapyTask.app** › **Abrir** › **Abrir**, o
+- *Ajustes del Sistema › Privacidad y seguridad* › **Abrir igualmente**, o
+- en Terminal: `xattr -dr com.apple.quarantine /Applications/CapyTask.app`
+
 ## Requisitos
 
 - macOS 14 o posterior (probado en macOS 27, Apple A18 Pro).
-- Swift 6 — basta con las *Command Line Tools*; Xcode no es necesario.
+- Para compilar: Swift 6 — basta con las *Command Line Tools*; Xcode no es necesario.
 
 ## Compilar y ejecutar
 
@@ -90,3 +102,29 @@ Tras cerrar la ventana la CPU vuelve a ~0 % (tras unos segundos de limpieza); la
 - **Sin `Assets.xcassets`**: compilar catálogos de assets requiere Xcode (`actool`). El icono `.icns` se genera con `sips` + `iconutil` a partir de `capy_logo.png`.
 - **`@ViewState` en vez de `@State`**: en el SDK de macOS 27, `@State` es una macro cuyo plugin solo trae Xcode; el alias apunta al property wrapper clásico para compilar con las Command Line Tools.
 - La ventana abre a 720 × 560 (mínimo 680 × 520) para que quepan las tarjetas sin apretarse.
+
+---
+
+## English
+
+**CapyTask** is a macOS resource monitor with the clarity of the Windows Task Manager and an animated capybara that reacts to your Mac's load: relaxed, worried or stressed. **The whole app is available in Spanish and English** — switch any time in *Settings › General › Language* (it follows your system language by default).
+
+- **Real kernel metrics** (Mach/libproc): per-core CPU, physical memory (active, inactive, wired, compressed, free), disk and processes — they match `top` and Activity Monitor.
+- **Visual Summary**: CPU, RAM and disk rings with the capybara in the middle, *Hungriest Apps* with their icons, memory breakdown, per-core load and history.
+- **Processes**: sortable table (Name, PID, CPU %, Memory MB, Type) with live search, *My Apps Only / All Processes* filter and **End Task** (SIGTERM, then SIGKILL after 3 s) with confirmation.
+- **Floating pet**: borderless sticker that floats over every window, draggable, remembers its position, animates on hover and shows a CPU/RAM bubble. Double-click opens the monitor; right-click opens a quick menu.
+- **Menu bar** item with live usage, pet toggle and settings.
+- **Lightweight**: ~16 MB and ~0.02 % CPU in the background with the pet on screen.
+
+### Download
+
+Get `CapyTask-1.0.0.zip` from [Releases](https://github.com/K1suru/CapyTask/releases/latest), unzip it and drag **CapyTask.app** to *Applications*. Universal binary (Apple Silicon and Intel), macOS 14 or later.
+
+The app is not signed with an Apple Developer certificate, so macOS blocks it the first time. To open it: right-click **CapyTask.app** › **Open** › **Open**, or use *System Settings › Privacy & Security* › **Open Anyway**, or run `xattr -dr com.apple.quarantine /Applications/CapyTask.app`.
+
+### Build from source
+
+```bash
+scripts/build_app.sh   # builds build/CapyTask.app (universal, ad-hoc signed); only Command Line Tools needed
+scripts/test.sh        # runs the test suite
+```
