@@ -103,6 +103,14 @@ Tras cerrar la ventana la CPU vuelve a ~0 % (tras unos segundos de limpieza); la
 - **`@ViewState` en vez de `@State`**: en el SDK de macOS 27, `@State` es una macro cuyo plugin solo trae Xcode; el alias apunta al property wrapper clásico para compilar con las Command Line Tools.
 - La ventana abre a 720 × 560 (mínimo 680 × 520) para que quepan las tarjetas sin apretarse.
 
+## Autor
+
+**Juan Garcia** — [garciagjs@javeriana.edu.co](mailto:garciagjs@javeriana.edu.co)
+
+## Licencia
+
+Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles. El software se proporciona «tal cual», sin garantía de ningún tipo.
+
 ---
 
 ## English
@@ -128,3 +136,11 @@ The app is not signed with an Apple Developer certificate, so macOS blocks it th
 scripts/build_app.sh   # builds build/CapyTask.app (universal, ad-hoc signed); only Command Line Tools needed
 scripts/test.sh        # runs the test suite
 ```
+
+### Author
+
+**Juan Garcia** — [garciagjs@javeriana.edu.co](mailto:garciagjs@javeriana.edu.co)
+
+### License
+
+This project is licensed under the MIT License — see [LICENSE](LICENSE). The software is provided "as is", without warranty of any kind.
