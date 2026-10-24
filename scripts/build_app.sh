@@ -23,6 +23,8 @@ echo "📦 Empaquetando $APP"
 rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 cp "$BIN_DIR/CapyTask" "$APP/Contents/MacOS/CapyTask"
+# Sin símbolos de depuración: llevan las rutas locales de quien compila.
+strip -Sx "$APP/Contents/MacOS/CapyTask"
 cp "$RESOURCES/Info.plist" "$APP/Contents/Info.plist"
 cp "$RESOURCES"/Images/*.png "$APP/Contents/Resources/"
 printf 'APPL????' > "$APP/Contents/PkgInfo"

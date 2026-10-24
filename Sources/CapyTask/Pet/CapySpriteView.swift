@@ -187,6 +187,14 @@ final class SpriteLibrary {
            fileManager.fileExists(atPath: bundled.appending(path: "metadata.json").path) {
             return bundled
         }
+        // Ejecutando desde la raíz del repositorio (`swift run`).
+        let workingCopy = URL(fileURLWithPath: fileManager.currentDirectoryPath).appending(path: "assets_processed")
+        if fileManager.fileExists(atPath: workingCopy.appending(path: "metadata.json").path) {
+            return workingCopy
+        }
+        #if DEBUG
+        // Solo en compilaciones de depuración (tests): `#filePath` incrusta la ruta
+        // local del código en el binario, así que nunca debe llegar a una versión final.
         var directory = URL(fileURLWithPath: #filePath).deletingLastPathComponent()
         for _ in 0..<6 {
             let candidate = directory.appending(path: "assets_processed")
@@ -195,6 +203,7 @@ final class SpriteLibrary {
             }
             directory = directory.deletingLastPathComponent()
         }
+        #endif
         return nil
     }
 }
