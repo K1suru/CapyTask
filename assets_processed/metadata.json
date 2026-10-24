@@ -1,0 +1,27 @@
+{
+  "width": 232,
+  "height": 311,
+  "states": {
+    "normal": {
+      "frameCount": 64,
+      "avgDurationMs": 62.5,
+      "gif": "capy_normal.gif",
+      "framesPath": "frames/normal/",
+      "firstFrame": "frames/normal/frame_000.png"
+    },
+    "worried": {
+      "frameCount": 64,
+      "avgDurationMs": 62.5,
+      "gif": "capy_worried.gif",
+      "framesPath": "frames/worried/",
+      "firstFrame": "frames/worried/frame_000.png"
+    },
+    "stressed": {
+      "frameCount": 64,
+      "avgDurationMs": 62.5,
+      "gif": "capy_stressed.gif",
+      "framesPath": "frames/stressed/",
+      "firstFrame": "frames/stressed/frame_000.png"
+    }
+  }
+}
